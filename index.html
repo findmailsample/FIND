@@ -1,5 +1,33 @@
 <html>
 <head>
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+    document.addEventListener("deviceready", onDeviceReady, false);
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+    }
+    function getCurrentPosition() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+'Longitude: ' + position.coords.longitude + '<br />' +
+'Altitude: ' + position.coords.altitude + '<br />' +
+'Accuracy: ' + position.coords.accuracy + '<br />' +
+'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br />' +
+'Heading: ' + position.coords.heading + '<br />' +
+'Speed: ' + position.coords.speed + '<br />' +
+'Timestamp: ' + new Date(position.timestamp) + '<br />';
+    }
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: ' + error.code + '\n' +
+'message: ' + error.message + '\n');
+    }
+</script>
 <style type="text/css">
 body {
 font-size: 20px;
@@ -28,7 +56,11 @@ text-align: center;
 <body>
 <div class="wrapper">
 <h2>FIND MOBILE</h2>
-<input type ="button" value="FIND ME" class="button" />
+<input type ="button" onclick="getCurrentPosition();" value="FIND ME" class="button" />
+<br />
+<div id="geolocation"></div>
 </div>
 </body>
 </html>
+<script type="text/javascript">
+</script>
