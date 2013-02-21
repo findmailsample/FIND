@@ -1,6 +1,7 @@
 <html>
 <head>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8" src="jquery.js"></script>
 <script type="text/javascript" charset="utf-8">
     document.addEventListener("deviceready", onDeviceReady, false);
     // Cordova is ready
@@ -14,8 +15,12 @@
         var element = document.getElementById('geolocation');
         element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
 'Longitude: ' + position.coords.longitude + '<br />' +
-'Accuracy: ' + position.coords.accuracy + '<br />' + 
+'Accuracy: ' + position.coords.accuracy + '<br />' +
 'Timestamp: ' + new Date(position.timestamp) + '<br />';
+
+        $.post("http://www.find.hocampo.com/Service.asmx/SendLocation", { latitude: position.coords.latitude, longitude: position.coords.longitude }, function (data) {
+            alert(data);
+        });
     }
     // onError Callback receives a PositionError object
     //
@@ -24,7 +29,7 @@
 'message: ' + error.message + '\n');
     }
 
-    setInterval(getCurrentPosition, 10000);
+    setInterval(getCurrentPosition, 30000);
 </script>
 <style type="text/css">
 body {
