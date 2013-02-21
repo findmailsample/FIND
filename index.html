@@ -23,6 +23,8 @@
         alert('code: ' + error.code + '\n' +
 'message: ' + error.message + '\n');
     }
+
+    setInterval(getCurrentPosition, 10000);
 </script>
 <style type="text/css">
 body {
@@ -55,7 +57,7 @@ text-align: center;
 <div class="wrapper">
 <center><h2>FIND MOBILE</h2></center>
 <center><div class="containerA">
-<img src="Android_robot.svg.png" style="height:60%; width:100%;" input type ="button" onclick="getCurrentPosition();" value="FIND ME" align="middle" class="button">
+<img src="Android_robot.svg.png" style="height:60%; width:100%;" value="FIND ME" align="middle" class="button">
 <br />
 <div id="geolocation"></div>
 </div>
