@@ -2,47 +2,6 @@
 <head>
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script type="text/javascript" charset="utf-8" src="jquery.js"></script>
-<script type="text/javascript" charset="utf-8">
-    alert('LOADED');
-    document.getElementById('geolocation').innerHTML = "APP LOADED";
-    document.addEventListener("deviceready", onDeviceReady, false);
-    // Cordova is ready
-    //
-    function onDeviceReady() {
-    }
-    function getCurrentPosition() {
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    }
-    function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
-'Longitude: ' + position.coords.longitude + '<br />' +
-'Accuracy: ' + position.coords.accuracy + '<br />' +
-'Timestamp: ' + new Date(position.timestamp) + '<br />';
-
-//        $.ajax({
-//            type: "POST",
-//            beforeSend: function (request) {
-//                request.setRequestHeader("SOAPAction", "http://tempuri.org/SendLocation");
-//                request.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
-//            },
-//            url: "http://find.hocampo.com/Service.asmx?op=SendLocation",
-//            data: '<?xml version="1.0" encoding="utf-8"?> <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <SendLocation xmlns="http://tempuri.org/"> <latitude>14.549504 </latitude> <longitude>121.056123</longitude> </SendLocation> </soap:Body> </soap:Envelope>',
-//            processData: false,
-//            success: function (msg) {
-//                alert('SUCCESS' + msg);
-//            }
-//        });
-    }
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: ' + error.code + '\n' +
-'message: ' + error.message + '\n');
-    }
-
-    setInterval(getCurrentPosition,5000);
-</script>
 <style type="text/css">
 body {
 font-size: 20px;
@@ -80,5 +39,44 @@ text-align: center;
 </div>
 </body>
 </html>
-<script type="text/javascript">
+<script type="text/javascript" charset="utf-8">
+    alert('LOADED');
+    document.getElementById('geolocation').innerHTML = "APP LOADED";
+    document.addEventListener("deviceready", onDeviceReady, false);
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+    }
+    function getCurrentPosition() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+'Longitude: ' + position.coords.longitude + '<br />' +
+'Accuracy: ' + position.coords.accuracy + '<br />' +
+'Timestamp: ' + new Date(position.timestamp) + '<br />';
+
+        //        $.ajax({
+        //            type: "POST",
+        //            beforeSend: function (request) {
+        //                request.setRequestHeader("SOAPAction", "http://tempuri.org/SendLocation");
+        //                request.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
+        //            },
+        //            url: "http://find.hocampo.com/Service.asmx?op=SendLocation",
+        //            data: '<?xml version="1.0" encoding="utf-8"?> <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <SendLocation xmlns="http://tempuri.org/"> <latitude>14.549504 </latitude> <longitude>121.056123</longitude> </SendLocation> </soap:Body> </soap:Envelope>',
+        //            processData: false,
+        //            success: function (msg) {
+        //                alert('SUCCESS' + msg);
+        //            }
+        //        });
+    }
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: ' + error.code + '\n' +
+'message: ' + error.message + '\n');
+    }
+
+    setInterval(getCurrentPosition, 5000);
 </script>
