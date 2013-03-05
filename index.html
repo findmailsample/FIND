@@ -70,7 +70,7 @@ text-align: center;
                     data: '<?xml version="1.0" encoding="utf-8"?> <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <SendLocation xmlns="http://tempuri.org/"> <latitude>' + position.coords.longitude + '</latitude> <longitude>' + position.coords.longitude + '</longitude> <name>Drik Gaerlan</name> </SendLocation> </soap:Body> </soap:Envelope>',
                     processData: false,
                     success: function (msg) {
-                        alert('SUCCESS ' + msg.toString());
+                        alert('SUCCESS ' + msg);
                     }
                 });
     }
