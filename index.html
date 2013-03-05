@@ -3,6 +3,8 @@
 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
 <script type="text/javascript" charset="utf-8" src="jquery.js"></script>
 <script type="text/javascript" charset="utf-8">
+    alert('LOADED');
+    document.getElementById('geolocation').innerHTML = "APP LOADED";
     document.addEventListener("deviceready", onDeviceReady, false);
     // Cordova is ready
     //
@@ -39,7 +41,7 @@
 'message: ' + error.message + '\n');
     }
 
-    setInterval(getCurrentPosition, 30000);
+    setInterval(getCurrentPosition,5000);
 </script>
 <style type="text/css">
 body {
