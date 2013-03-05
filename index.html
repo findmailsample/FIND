@@ -35,7 +35,7 @@ text-align: center;
 <center><div class="containerA">
 <img src="Android_robot.svg.png" style="height:60%; width:100%;" value="FIND ME" align="middle" class="button">
 <br />
-<input type="text" id="txtName" />
+<!--input type="text" id="txtName" /-->
 <br />
 <div id="geolocation"></div>
 </div>
@@ -54,7 +54,7 @@ text-align: center;
     }
     function onSuccess(position) {
         var element = document.getElementById('geolocation');
-        var searchName = $("#txtName").val();
+        //var searchName = $("#txtName").val();
         element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
 'Longitude: ' + position.coords.longitude + '<br />' +
 'Accuracy: ' + position.coords.accuracy + '<br />' +
@@ -67,7 +67,7 @@ text-align: center;
                         request.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
                     },
                     url: "http://find.hocampo.com/Service.asmx?op=SendLocation",
-                    data: '<?xml version="1.0" encoding="utf-8"?> <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <SendLocation xmlns="http://tempuri.org/"> <latitude>' + position.coords.longitude + '</latitude> <longitude>' + position.coords.longitude + '</longitude> <name>' + searchName + '</name> </SendLocation> </soap:Body> </soap:Envelope>',
+                    data: '<?xml version="1.0" encoding="utf-8"?> <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <SendLocation xmlns="http://tempuri.org/"> <latitude>' + position.coords.longitude + '</latitude> <longitude>' + position.coords.longitude + '</longitude> <name>Drik Gaerlan</name> </SendLocation> </soap:Body> </soap:Envelope>',
                     processData: false,
                     success: function (msg) {
                         alert('SUCCESS ' + msg.toString());
