@@ -63,11 +63,10 @@ text-align: center;
         $.ajax({
             type: "POST",
             beforeSend: function (request) {
-                request.setRequestHeader("SOAPAction", "http://tempuri.org/SendLocation");
                 request.setRequestHeader("Content-Type", "text/xml; charset=utf-8");
             },
             url: "http://find.hocampo.com/Service.asmx?op=SendLocation",
-            data: '<?xml version="1.0" encoding="utf-8"?> <soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <SendLocation xmlns="http://tempuri.org/"> <latitude>' + position.coords.longitude + '</latitude> <longitude>' + position.coords.longitude + '</longitude> <name>Drik Gaerlan</name> </SendLocation> </soap:Body> </soap:Envelope>',
+            data: '<?xml version="1.0" encoding="utf-8"?> <soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"> <soap12:Body> <SendLocation xmlns="http://tempuri.org/"> <latitude>' + position.coords.latitude + '</latitude> <longitude>' + position.coords.longitude + '</longitude> <name>Drik Gaerlan</name> </SendLocation> </soap12:Body> </soap12:Envelope>',
             processData: false,
             success: function (msg) {
                 alert('SUCCESS ' + msg);
